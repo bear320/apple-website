@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import Lights from "./Lights";
+import Loader from "./Loader";
 import IPhone from "./IPhone";
 import * as THREE from "three";
 import {
@@ -48,13 +49,7 @@ const ModelView = ({
         name={`${index === 1 ? "small" : "large"}`}
         position={[0, 0, 0]}
       >
-        <Suspense
-          fallback={
-            <Html>
-              <div>Loading</div>
-            </Html>
-          }
-        >
+        <Suspense fallback={<Loader />}>
           <IPhone
             scale={index === 1 ? [15, 15, 15] : [17, 17, 17]}
             item={item}
