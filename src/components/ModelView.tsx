@@ -13,12 +13,24 @@ const ModelView = ({
   setRotationState,
   size,
   item,
+}: {
+  index: number;
+  groupRef: React.MutableRefObject<THREE.Group<THREE.Object3DEventMap>>;
+  gsapType: string;
+  controlRef: React.MutableRefObject<undefined>;
+  setRotationState: React.Dispatch<React.SetStateAction<number>>;
+  size: string;
+  item: {
+    title: string;
+    color: string[];
+    img: string;
+  };
 }) => {
   return (
     <View
       index={index}
       id={gsapType}
-      className={`h-full w-full ${index === 2 ? "right-[-100%]" : ""}`}
+      className={`absolute h-full w-full ${index === 2 ? "right-[-100%]" : ""}`}
     >
       {/* Ambient Light */}
       <ambientLight intensity={0.3} />
